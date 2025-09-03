@@ -4,8 +4,7 @@ The Command-Line Interface (CLI) for Project Denning.
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-from agent_core.agent import Agent
+from denning_project.agent_core.agent import Agent
 
 def main():
     print("--Welcome to Project Denning: Evolving AI purely on law --")
