@@ -1,0 +1,6 @@
+pyyaml
+python-dotenv
+requests
+chromadb
+sentence-transformers
+beautifulsoup4

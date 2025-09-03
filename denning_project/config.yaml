@@ -1,0 +1,39 @@
+# -----------------------------------------------------------------------------
+# Core Configuration for Project Denning (Hugging Face Edition)
+# -----------------------------------------------------------------------------
+
+# Hugging Face Model Settings
+# The specific API endpoint for the model we want to use.
+# Mistral-7B is a great, fast, and powerful starting point.
+# You can find other model endpoints on the Hugging Face Hub.
+huggingface_api_url: "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
+
+# Embedding Model Settings
+# The model from HuggingFace's sentence-transformers library used for embeddings.
+# It will be downloaded automatically on first use.
+embedding_model: "all-MiniLM-L6-v2"
+
+# Database Settings
+# The local file path where the ChromaDB vector database will be stored.
+vector_db_path: "./database/vector_db"
+
+# RAG (Retrieval-Augmented Generation) Settings
+# The number of relevant text chunks to retrieve from the database to use as context.
+retrieval_results: 5
+
+# System Prompt Template
+# This is the master instruction for the LLM.
+# It MUST contain the placeholders {context} and {question}.
+prompt_template: >
+  You are a specialist legal research assistant named Denning.
+  Your sole function is to answer questions based ONLY on the provided legal text.
+  You must never use any external knowledge.
+  If the provided text does not contain the answer, you must state that the information is not available in the provided documents.
+  Synthesize a clear and concise answer from the following legal text chunks.
+
+  --- LEGAL CONTEXT ---
+  {context}
+  --- END OF CONTEXT ---
+
+  Based only on the context above, answer the following question:
+  Question: {question}
